@@ -1,1 +1,4 @@
 config.py
+weather.log
+__pycache__/
+*.pyc
