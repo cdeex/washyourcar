@@ -73,8 +73,9 @@ class Weather:
 			self.notificationTime = time.time()
 			conn.close()
 	
+	@classmethod
 	def notifyOrNot(self, time):
-		if self.timeDifference(self.notificationTime, time.time()) >= (24 * 3600):
+		if time.time() - cls.notificationTime >= (24 * 3600):
 			return True
 		else:
 			return False
@@ -87,8 +88,8 @@ while True:
 	for item in range(w.numitems):
 		logging.debug("{0} \t {1} \t {2} \t {3}\t {4}\t {5}".format(time.ctime(),item,w.getDateHuman(item), w.getDescription(item), w.timeDiferenceItem(item), (HOURS * 3600) ))
 		if w.timeDiferenceItem(item) >= (HOURS * 3600):
-				logging.debug("Above {0} hours: i will notify: {1}".format(HOURS, w.notifyOrNot))
-				if w.notifyOrNot():
+				logging.debug(time.time() - w.notificationTime)
+				if ((time.time() - w.notificationTime) >= (24 * 3600)):
 					logging.debug("Sending message...")
 					w.sendMessage("Wash your car! No rain in a couple of days")
 					logging.info("Message sent!")
