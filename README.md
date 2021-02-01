@@ -9,4 +9,5 @@ config.py file should contains API Token and user for Pushover and appID for you
 PUSH_API_TOKEN = "t0k3n"
 PUSH_API_USER = "us3r" 
 OPENWEATHER_APP_ID = "app1d"
+LOGS_DIRECTORY = '/path/to/your/weather/logs/'
 ```
