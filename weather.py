@@ -4,6 +4,7 @@ import time
 import math
 import http.client, urllib
 import logging
+import config
 
 
 HOURS = 72
